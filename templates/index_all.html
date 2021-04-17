@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div>
+        <nav class="bg-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                                alt="Workflow">
+                        </div>
+                        <div class="hidden md:block">
+                            <div class="ml-10 flex items-baseline space-x-4">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#"
+                                    class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
+
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+
+                                <a href="#"
+                                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="md:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="#"
+                        class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+
+                    <a href="#"
+                        class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="bg-white shadow">
+            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-3xl font-bold text-gray-900">
+                    Dashboard
+                </h1>
+            </div>
+        </header>
+        <main>
+            <div class="max-w-8xl mx-auto py-6 sm:px-6 lg:px-4">
+                <!-- Replace with your content -->
+                <div class="px-4 py-6 sm:px-0">
+                    <div class="container mx-auto p-4">
+                        <div class="flex flex-col">
+                        
+                            <div class="shadow-xl border-2  border-gray-500 border-opacity-10 m-5 mb-8 sm:rounded-md sm:overflow-hidden">
+                                <div class="px-4 py-5 bg-white rounded-xl space-y-6 sm:p-6">
+                                  <div class="grid grid-cols-11 gap-4">
+                                    <div class="col-span-2 mx-auto">
+                                      <p class="font-semibold">Price</p>
+                                    </div>
+                                    <div class="col-span-4">
+                                      <div class="mt-1 flex rounded-md shadow-md">
+                                        <input type="number" name="minPrice" id="minPrice" placeholder="min" class="border-2 border-opacity-40 border-gray-00 flex-1 block w-full rounded-md sm:text-sm" />
+                                      </div>
+                                    </div>
+                                    <div class="mx-auto">
+                                      <p>-</p>
+                                    </div>
+                                    <div class="col-end-13 col-span-5">
+                                      <div class="mt-1 flex rounded-md shadow-md">
+                                        <input type="number" name="maxPrice" id="maxPrice" placeholder="max" class="border-2 border-opacity-40 border-gray-00 flex-1 block w-full rounded-md sm:text-sm" />
+                                      </div>
+                                    </div>
+                                  </div>
+                            
+                                  <div class="grid grid-cols-11 gap-4 pt-4">
+                                    <div class="col-span-2 mx-auto">
+                                      <p class="font-semibold">Market Cap</p>
+                                    </div>
+                                    <div class="col-span-4">
+                                      <div class="mt-1 flex rounded-md shadow-md">
+                                        <input type="number" name="minMarketCap" id="minMarketCap" placeholder="min" class="border-2 border-opacity-40 border-gray-00 flex-1 block w-full rounded-md sm:text-sm" />
+                                      </div>
+                                    </div>
+                                    <div class="mx-auto">
+                                      <p>-</p>
+                                    </div>
+                                    <div class="col-end-13 col-span-5">
+                                      <div class="mt-1 flex rounded-md shadow-md">
+                                        <input type="number" name="maxMarketCap" id="maxMarketCap" placeholder="max" class="border-2 border-opacity-40 border-gray-00 flex-1 block w-full rounded-md sm:text-sm" />
+                                      </div>
+                                    </div>
+                                  </div>
+                            
+                                  <div class="grid grid-cols-11 gap-4 pt-4">
+                                    <div class="col-span-2 mx-auto">
+                                      <p class="font-semibold">Volume</p>
+                                    </div>
+                                    <div class="col-span-4">
+                                      <div class="mt-1 flex rounded-md shadow-md">
+                                        <input type="number" name="minVolume" id="minVolume" placeholder="min" class="border-2 border-opacity-40 border-gray-00 flex-1 block w-full rounded-md sm:text-sm" />
+                                      </div>
+                                    </div>
+                                    <div class="mx-auto">
+                                      <p>-</p>
+                                    </div>
+                                    <div class="col-end-13 col-span-5">
+                                      <div class="mt-1 flex rounded-md shadow-md">
+                                        <input type="number" name="maxVolume" id="maxVolume" placeholder="max" class="border-2 border-opacity-40 border-gray-00 flex-1 block w-full rounded-md sm:text-sm" />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>       
+                         
+                             
+                        
+
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+
+                                        <table class="min-w-full divide-y divide-gray-200" id="myTable">
+                                            <thead class="bg-gray-50">
+                                                <tr>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Pattern
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Symbol
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Company
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Market Cap
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Volume
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Price
+                                                    </th>
+                                                    <th scope="col"
+                                                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                        Signal
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="bg-white divide-y divide-gray-200">
+                                                {% for pattern in stocks %}
+                                                {% if stocks[pattern]['is_exist'] %}
+                                                {% for stock in stocks[pattern] %}
+                                                {% if stocks[pattern][stock]['indicator'] %}
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{ pattern }}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{stock}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{stocks[pattern][stock]['company']}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{stocks[pattern][stock]['market_cap'] }}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{stocks[pattern][stock]['volume']}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {{stocks[pattern][stock]['price']}}
+                                                    </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        {% if stocks[pattern][stock]['indicator']=='bullish' %}
+                                                        <span
+                                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                            Bullish
+                                                        </span>
+                                                        {% else %}
+                                                        <span
+                                                            class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                                                            Bearish
+                                                        </span>
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                                {% endif %}
+                                                {% endfor %}
+                                                {% endif %}
+                                                {% endfor %}
+                                                <!-- More items... -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End replace -->
+            </div>
+        </main>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script>
+        $.fn.dataTable.ext.search.push(
+            function (settings, data, dataIndex) {
+                var min_price = parseInt($('#minPrice').val(), 10);
+                var max_price = parseInt($('#maxPrice').val(), 10);
+                var price = parseFloat(data[5]) || 0; // use data for the price column
+
+                if ((isNaN(min_price) && isNaN(max_price)) ||
+                    (isNaN(min_price) && price <= max_price) ||
+                    (min_price <= price && isNaN(max_price)) ||
+                    (min_price <= price && price <= max_price)) {
+                    return true;
+                }
+                return false;
+            }
+        );
+        $.fn.dataTable.ext.search.push(
+            function (settings, data, dataIndex) {
+                var min_price = parseInt($('#minMarketCap').val(), 10);
+                var max_price = parseInt($('#maxMarketCap').val(), 10);
+                var price = parseFloat(data[3]) || 0; // use data for the price column
+
+                if ((isNaN(min_price) && isNaN(max_price)) ||
+                    (isNaN(min_price) && price <= max_price) ||
+                    (min_price <= price && isNaN(max_price)) ||
+                    (min_price <= price && price <= max_price)) {
+                    return true;
+                }
+                return false;
+            }
+        );
+        $.fn.dataTable.ext.search.push(
+            function (settings, data, dataIndex) {
+                var min_price = parseInt($('#minVolume').val(), 10);
+                var max_price = parseInt($('#maxVolume').val(), 10);
+                var price = parseFloat(data[4]) || 0; // use data for the price column
+
+                if ((isNaN(min_price) && isNaN(max_price)) ||
+                    (isNaN(min_price) && price <= max_price) ||
+                    (min_price <= price && isNaN(max_price)) ||
+                    (min_price <= price && price <= max_price)) {
+                    return true;
+                }
+                return false;
+            }
+        );
+        
+        $(document).ready(function () {
+
+            // Setup - add a text input to each footer cell
+            $('#myTable thead tr').clone(true).appendTo('#myTable thead');
+            $('#myTable thead tr:eq(1) th').each(function (i) {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+
+            var table = $('#myTable').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                "columnDefs": [
+                    {
+                    "type": "html-num-fmt", "targets": [3,4,5],
+                    }
+                ],
+            });
+            // Event listener to the two range filtering inputs to redraw on input
+            $('#min, #max').keyup(function () {
+                table.draw();
+            });
+        });
+    </script>
+</body>
+
+</html>
